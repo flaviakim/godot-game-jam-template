@@ -18,11 +18,11 @@ This repository contains boilerplate code that will handle module loading. For t
 
 ## Folder structure:
 I created some other sub readmes for both folders
+- [details scr](src/README.md)
+- [details resources](resources/README.md)
 ```
-src -> godot related files [more details here](src/README.md)
-resources -> files from external editors (.png,.jpg,.wav etc) [more details here](resources/README.md)
+src -> godot related files
+resources -> files from external editors
 ```
-
-
 
 > Template created by [saturn91.dev](https://saturn91.dev)
