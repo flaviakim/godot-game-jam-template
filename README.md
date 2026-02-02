@@ -35,6 +35,7 @@ resources -> files from external editors
 - [ ] pause game implementation
 - [ ] level handling
 - [x] setting save to file handler
+- [ ] update volume when settings are changed
 - [x] debug ui messages
 - [ ] debug ui properties (host / webhost)
 	- [ ] host
