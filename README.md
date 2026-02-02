@@ -35,7 +35,7 @@ resources -> files from external editors
 - [ ] pause game implementation
 - [ ] level handling
 - [x] setting save to file handler
-- [ ] debug ui messages
+- [x] debug ui messages
 - [ ] debug ui properties (host / webhost)
 - [x] prepare webbuild export
 - [x] prepare desktop exports
