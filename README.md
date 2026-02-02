@@ -37,6 +37,9 @@ resources -> files from external editors
 - [x] setting save to file handler
 - [x] debug ui messages
 - [ ] debug ui properties (host / webhost)
+	- [ ] host
+	- [x] fps
+	- [ ] current module
 - [x] prepare webbuild export
 - [x] prepare desktop exports
 
