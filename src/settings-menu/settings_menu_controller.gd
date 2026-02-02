@@ -6,7 +6,6 @@ class_name SettingsMenuController extends Node
 @onready var main_menu_btn: Button = $"../UI/VBoxContainer/Button"
 
 func _ready() -> void:
-	
 	fullscreen_checkbox.button_pressed = SettingsManager.singleton.fullscreen
 	fullscreen_checkbox.toggled.connect(func(value): SettingsManager.singleton.fullscreen = value)
 	
