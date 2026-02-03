@@ -43,6 +43,7 @@ metadata/_custom_type_script = "uid://kaqllehf0y7c"
 
 [node name="UiPlop" type="AudioStreamPlayer" parent="GlobalSound" unique_id=1738715608]
 stream = ExtResource("10_tb146")
+volume_db = -10.0
 script = ExtResource("10_mlv6i")
 metadata/_custom_type_script = "uid://buhskey0nj1a1"
 
