@@ -38,8 +38,8 @@ resources -> files from external editors
 - [ ] update volume when settings are changed
 - [x] update fullscreen if settings are changed
 - [x] debug ui messages
-- [x] debug ui properties
-	- [x] host
+- [ ] debug ui properties
+	- [ ] host -> add OS on web
 	- [x] fps
 	- [x] current module
 - [x] prepare webbuild export
