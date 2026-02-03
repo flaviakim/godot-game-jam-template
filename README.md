@@ -25,7 +25,7 @@ src -> godot related files
 resources -> files from external editors
 ```
 
-## TODO post jam
+## TODO pre jam
 - [x] module loader
 	- [ ] intro (logos)
 	- [x] main menu
