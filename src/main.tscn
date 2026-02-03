@@ -10,9 +10,13 @@
 [ext_resource type="Resource" uid="uid://batjp8ux5d7vp" path="res://src/settings-menu/settings_menu.tres" id="6_kmhfv"]
 [ext_resource type="Resource" uid="uid://6uv2sleonprr" path="res://src/credits/credits.tres" id="7_5mrjc"]
 [ext_resource type="Resource" uid="uid://doia7y6nbfc0a" path="res://src/game/game.tres" id="7_rlaii"]
+[ext_resource type="Script" uid="uid://kaqllehf0y7c" path="res://src/audio/global_sound.gd" id="10_e7lu8"]
 [ext_resource type="Theme" uid="uid://bry4peyypr0hh" path="res://resources/graphics/themes/debug_theme.tres" id="10_kqbth"]
+[ext_resource type="Script" uid="uid://buhskey0nj1a1" path="res://src/audio/controlled_audio_stream_player_2d.gd" id="10_mlv6i"]
+[ext_resource type="AudioStream" uid="uid://thl7i6uugsy" path="res://resources/audio/sfx/plop.wav" id="10_tb146"]
 [ext_resource type="Script" uid="uid://bc6k7x63oamaq" path="res://src/debug/debug-properties/fps_counter.gd" id="11_uewes"]
 [ext_resource type="Script" uid="uid://wqpsii52wp4h" path="res://src/debug/debug_environment_label.gd" id="12_srxbw"]
+[ext_resource type="AudioStream" uid="uid://ckvjkpm3qnses" path="res://resources/audio/music/zombie_main_music_placeholder.ogg" id="13_okx7f"]
 [ext_resource type="Script" uid="uid://qxmah1buto32" path="res://src/debug/debug_current_modul.gd" id="14_d3u4l"]
 
 [node name="Main" type="Node2D" unique_id=732130935]
@@ -32,6 +36,23 @@ modules = Array[ExtResource("2_5q4o7")]([ExtResource("4_fyndt"), ExtResource("5_
 metadata/_custom_type_script = "uid://capbdq5tj44gi"
 
 [node name="ModuleRoot" type="Node" parent="ModulManager" unique_id=370113605]
+
+[node name="GlobalSound" type="Node" parent="." unique_id=613539388]
+script = ExtResource("10_e7lu8")
+metadata/_custom_type_script = "uid://kaqllehf0y7c"
+
+[node name="UiPlop" type="AudioStreamPlayer" parent="GlobalSound" unique_id=1738715608]
+stream = ExtResource("10_tb146")
+script = ExtResource("10_mlv6i")
+metadata/_custom_type_script = "uid://buhskey0nj1a1"
+
+[node name="menu_music" type="AudioStreamPlayer" parent="GlobalSound" unique_id=798656571]
+stream = ExtResource("13_okx7f")
+volume_db = -17.029
+autoplay = true
+script = ExtResource("10_mlv6i")
+type = 1
+metadata/_custom_type_script = "uid://buhskey0nj1a1"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=780290207]
 

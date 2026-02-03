@@ -1,5 +1,7 @@
 class_name SettingsManager extends Node
 
+signal on_volume_changed
+
 static var singleton: SettingsManager
 
 const SETTINGS_PATH := "user://settings.cfg"
@@ -25,10 +27,12 @@ func set_fullscreen(value: bool) -> void:
 
 func set_music_volume(value: float) -> void:
 	music_volume = value
+	on_volume_changed.emit()
 	save_settings()
 
 func set_sfx_volume(value: float) -> void:
 	sfx_volume = value
+	on_volume_changed.emit()
 	save_settings()
 
 func save_settings() -> void:

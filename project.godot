@@ -25,6 +25,7 @@ config/icon="res://icon.svg"
 
 EnvUtils="*uid://c8u5mwwu2ph0y"
 UiUtils="*uid://cnka1nxygdrvx"
+ControlledAudioUtil="*uid://boiijtgrrc8hr"
 
 [display]
 

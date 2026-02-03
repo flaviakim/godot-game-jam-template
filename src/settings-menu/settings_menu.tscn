@@ -48,7 +48,7 @@ text = "Music volume: "
 
 [node name="Label3" type="Label" parent="UI/VBoxContainer/Body/Labels" unique_id=1165370801]
 layout_mode = 2
-text = "Music volume: "
+text = "Sfx volume: "
 
 [node name="Fields" type="VBoxContainer" parent="UI/VBoxContainer/Body" unique_id=1950998431]
 custom_minimum_size = Vector2(75, 0)

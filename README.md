@@ -35,11 +35,11 @@ resources -> files from external editors
 - [ ] pause game implementation
 - [ ] level handling
 - [x] setting save to file handler
-- [ ] update volume when settings are changed
+- [x] update volume when settings are changed
 - [x] update fullscreen if settings are changed
 - [x] debug ui messages
-- [ ] debug ui properties
-	- [ ] host -> add OS on web
+- [x] debug ui properties
+	- [x] host -> add OS on web
 	- [x] fps
 	- [x] current module
 - [x] prepare webbuild export
