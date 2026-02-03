@@ -28,7 +28,7 @@ resources -> files from external editors
 ## TODO post jam
 - [x] module loader
 	- [ ] intro (logos)
-	- [ ] main menu
+	- [x] main menu
 		- [x] settings menu (fullscreen, music volume, sfx volume)
 		- [x] credits
 	- [x] game
@@ -36,12 +36,14 @@ resources -> files from external editors
 - [ ] level handling
 - [x] setting save to file handler
 - [ ] update volume when settings are changed
+- [x] update fullscreen if settings are changed
 - [x] debug ui messages
-- [ ] debug ui properties (host / webhost)
-	- [ ] host
+- [x] debug ui properties
+	- [x] host
 	- [x] fps
-	- [ ] current module
+	- [x] current module
 - [x] prepare webbuild export
 - [x] prepare desktop exports
+- [x] prepare theme for ui
 
 > Template created by [saturn91.dev](https://saturn91.dev)

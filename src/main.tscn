@@ -12,6 +12,8 @@
 [ext_resource type="Resource" uid="uid://doia7y6nbfc0a" path="res://src/game/game.tres" id="7_rlaii"]
 [ext_resource type="Theme" uid="uid://bry4peyypr0hh" path="res://resources/graphics/themes/debug_theme.tres" id="10_kqbth"]
 [ext_resource type="Script" uid="uid://bc6k7x63oamaq" path="res://src/debug/debug-properties/fps_counter.gd" id="11_uewes"]
+[ext_resource type="Script" uid="uid://wqpsii52wp4h" path="res://src/debug/debug_environment_label.gd" id="12_srxbw"]
+[ext_resource type="Script" uid="uid://qxmah1buto32" path="res://src/debug/debug_current_modul.gd" id="14_d3u4l"]
 
 [node name="Main" type="Node2D" unique_id=732130935]
 
@@ -49,10 +51,20 @@ layout_mode = 2
 layout_mode = 2
 text = "this is the debug menu, press CTRL + PERIOD to toggle"
 
+[node name="host" type="Label" parent="UI/DebugProperties/VBoxContainer" unique_id=1070084554]
+layout_mode = 2
+text = "host: #environment"
+script = ExtResource("12_srxbw")
+
 [node name="FPSCounter" type="Label" parent="UI/DebugProperties/VBoxContainer" unique_id=717308387]
 layout_mode = 2
 script = ExtResource("11_uewes")
 metadata/_custom_type_script = "uid://bc6k7x63oamaq"
+
+[node name="current_modul" type="Label" parent="UI/DebugProperties/VBoxContainer" unique_id=771948115]
+layout_mode = 2
+text = "module: #module"
+script = ExtResource("14_d3u4l")
 
 [node name="DebugMessages" type="MarginContainer" parent="UI" unique_id=934068952]
 anchors_preset = 9
@@ -66,3 +78,5 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[connection signal="on_module_change" from="ModulManager" to="UI/DebugProperties/VBoxContainer/current_modul" method="_on_modul_manager_on_module_change"]

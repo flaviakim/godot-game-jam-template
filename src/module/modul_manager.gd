@@ -1,5 +1,7 @@
 class_name ModulManager extends Node
 
+signal on_module_change
+
 @export var inital_module: ModuleInfo
 @export var modules: Array[ModuleInfo] = []
 
@@ -15,6 +17,7 @@ func _ready() -> void:
 	_module_mapping = {}
 	initialize_module_mapping()
 	load_module(inital_module.id)
+	on_module_change.emit(inital_module.id)
 	singleton = self
 	
 func initialize_module_mapping() -> void:
@@ -33,7 +36,7 @@ func unload_current_module() -> void:
 	if _current_module:
 		_current_module.unload()
 		
-func _instantiate_module(module_id) -> void:
+func _instantiate_module(module_id: String) -> void:
 	var new_module = (_module_mapping.get(module_id) as ModuleInfo).scene.instantiate()
 	if !new_module is Module:
 		Debug.singleton.warn(module_id + ": has no attached Module script!")
@@ -41,3 +44,5 @@ func _instantiate_module(module_id) -> void:
 	module_root.add_child(new_module)
 	_current_module = new_module
 	_current_module_id = module_id
+	
+	on_module_change.emit(module_id)
