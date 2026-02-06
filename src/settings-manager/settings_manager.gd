@@ -1,7 +1,5 @@
 class_name SettingsManager extends Node
 
-signal on_volume_changed
-
 static var singleton: SettingsManager
 
 const SETTINGS_PATH := "user://settings.cfg"
@@ -16,6 +14,19 @@ var sfx_volume: float = 1.0:
 func _ready() -> void:
 	singleton = self
 	load_settings()
+	apply_volumes()
+
+func get_volume_db(volume: float) -> float:
+	if volume <= 0.1:
+		return -80.0
+	else:
+		return linear_to_db(volume * 0.5)
+
+func apply_volumes() -> void:
+	var music_bus = AudioServer.get_bus_index("Music")
+	var sfx_bus = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(music_bus, get_volume_db(music_volume))
+	AudioServer.set_bus_volume_db(sfx_bus, get_volume_db(sfx_volume))
 
 func set_fullscreen(value: bool) -> void:
 	fullscreen = value
@@ -27,12 +38,12 @@ func set_fullscreen(value: bool) -> void:
 
 func set_music_volume(value: float) -> void:
 	music_volume = value
-	on_volume_changed.emit()
+	apply_volumes()
 	save_settings()
 
 func set_sfx_volume(value: float) -> void:
 	sfx_volume = value
-	on_volume_changed.emit()
+	apply_volumes()
 	save_settings()
 
 func save_settings() -> void:
@@ -57,3 +68,4 @@ func load_settings():
 	fullscreen = config.get_value("video", "fullscreen", fullscreen)
 	music_volume = config.get_value("audio", "music_volume", music_volume)
 	sfx_volume = config.get_value("audio", "sfx_volume", sfx_volume)
+	apply_volumes()

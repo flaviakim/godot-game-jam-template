@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://8gipcpubw6e6"]
 
 [ext_resource type="Script" uid="uid://da0xnfi2i7ixy" path="res://src/module/module.gd" id="1_qnjlk"]
+[ext_resource type="Script" uid="uid://dotsatbfctanc" path="res://src/audio/scene_music.gd" id="2_jhw8o"]
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="2_s6lek"]
 [ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="3_l80un"]
 [ext_resource type="Script" uid="uid://tyug5shtd20o" path="res://src/in-game-ui/in_game_ui_controller.gd" id="3_xptat"]
@@ -48,6 +49,10 @@ _data = {
 [node name="Game" type="Node2D" unique_id=846217353]
 script = ExtResource("1_qnjlk")
 metadata/_custom_type_script = "uid://da0xnfi2i7ixy"
+
+[node name="SceneMusic" type="Node" parent="." unique_id=1923907409]
+script = ExtResource("2_jhw8o")
+metadata/_custom_type_script = "uid://dotsatbfctanc"
 
 [node name="world" type="Node2D" parent="." unique_id=696585772]
 

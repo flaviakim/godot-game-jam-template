@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dh8pdmktp1gku" path="res://src/debug/debug-properties/debug_properties.gd" id="1_mgm53"]
 [ext_resource type="Script" uid="uid://cvji2ctgpxin" path="res://src/module/module_info.gd" id="2_5q4o7"]
 [ext_resource type="Script" uid="uid://wcvouw7dek2n" path="res://src/settings-manager/settings_manager.gd" id="2_kf8lf"]
+[ext_resource type="Script" uid="uid://deetnautgtc8f" path="res://src/audio/global_music.gd" id="3_okx7f"]
 [ext_resource type="Resource" uid="uid://c7f7n315qu4kh" path="res://src/intro/Intro.tres" id="4_fyndt"]
 [ext_resource type="Resource" uid="uid://d36rkclnctpgj" path="res://src/main-menu/main_menu.tres" id="5_kmhfv"]
 [ext_resource type="Resource" uid="uid://batjp8ux5d7vp" path="res://src/settings-menu/settings_menu.tres" id="6_kmhfv"]
@@ -12,7 +13,6 @@
 [ext_resource type="Resource" uid="uid://doia7y6nbfc0a" path="res://src/game/game.tres" id="7_rlaii"]
 [ext_resource type="Script" uid="uid://kaqllehf0y7c" path="res://src/audio/global_sound.gd" id="10_e7lu8"]
 [ext_resource type="Theme" uid="uid://bry4peyypr0hh" path="res://resources/graphics/themes/debug_theme.tres" id="10_kqbth"]
-[ext_resource type="Script" uid="uid://buhskey0nj1a1" path="res://src/audio/controlled_audio_stream_player.gd" id="10_mlv6i"]
 [ext_resource type="AudioStream" uid="uid://thl7i6uugsy" path="res://resources/audio/sfx/plop.wav" id="10_tb146"]
 [ext_resource type="Script" uid="uid://bc6k7x63oamaq" path="res://src/debug/debug-properties/fps_counter.gd" id="11_uewes"]
 [ext_resource type="Script" uid="uid://wqpsii52wp4h" path="res://src/debug/debug_environment_label.gd" id="12_srxbw"]
@@ -29,24 +29,19 @@ metadata/_custom_type_script = "uid://bf8fle3x61p80"
 script = ExtResource("2_kf8lf")
 metadata/_custom_type_script = "uid://wcvouw7dek2n"
 
+[node name="GlobalMusic" type="Node" parent="." unique_id=1615095645]
+script = ExtResource("3_okx7f")
+metadata/_custom_type_script = "uid://deetnautgtc8f"
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="GlobalMusic" unique_id=1574602383]
+stream = ExtResource("13_okx7f")
+
 [node name="GlobalSound" type="Node" parent="." unique_id=613539388]
 script = ExtResource("10_e7lu8")
 metadata/_custom_type_script = "uid://kaqllehf0y7c"
 
-[node name="UiPlop" type="AudioStreamPlayer" parent="GlobalSound" unique_id=1738715608]
+[node name="UiPlop" type="AudioStreamPlayer" parent="GlobalSound" unique_id=1701739013]
 stream = ExtResource("10_tb146")
-volume_db = -10.0
-script = ExtResource("10_mlv6i")
-metadata/_custom_type_script = "uid://buhskey0nj1a1"
-
-[node name="Music" type="AudioStreamPlayer" parent="GlobalSound" unique_id=999459748]
-stream = ExtResource("13_okx7f")
-volume_db = -10.339
-autoplay = true
-playback_type = 1
-script = ExtResource("10_mlv6i")
-type = 1
-metadata/_custom_type_script = "uid://buhskey0nj1a1"
 
 [node name="ModulManager" type="Node" parent="." unique_id=1966766302]
 script = ExtResource("1_gh0ne")

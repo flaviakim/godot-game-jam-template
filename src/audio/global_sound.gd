@@ -8,14 +8,13 @@ func _ready() -> void:
 	_sound_map = {}
 	for c in get_children():
 		if c is AudioStreamPlayer:
+			c.bus = "SFX"
 			_sound_map.set(c.name, c)
 		if c is AudioStreamPlayer2D:
+			c.bus = "SFX"
 			_sound_map.set(c.name, c)
-		if c is ControlledAudioStreamPlayer:
-			_sound_map.set(c.name, c)
-		if c is ControlledAudioStreamPlayer2D:
-			_sound_map.set(c.name, c)
-		if c is ControlledAudioStreamPlayer3D:
+		if c is AudioStreamPlayer3D:
+			c.bus = "SFX"
 			_sound_map.set(c.name, c)
 			
 	singleton = self

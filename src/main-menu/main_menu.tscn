@@ -4,10 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://dp83k3rrysogj" path="res://src/ui/menu-background/menu_background.tscn" id="2_6egru"]
 [ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="2_gs0nq"]
 [ext_resource type="Script" uid="uid://dxe0vn5mloagj" path="res://src/main-menu/main_menu_controller.gd" id="2_qp1v6"]
+[ext_resource type="Script" uid="uid://dotsatbfctanc" path="res://src/audio/scene_music.gd" id="2_ytjsf"]
 
 [node name="MainMenu" type="Node2D" unique_id=2143474246]
 script = ExtResource("1_3mb8q")
 metadata/_custom_type_script = "uid://da0xnfi2i7ixy"
+
+[node name="SceneMusic" type="Node" parent="." unique_id=715919493]
+script = ExtResource("2_ytjsf")
+music_id = "MainMenu"
+metadata/_custom_type_script = "uid://dotsatbfctanc"
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=482831599]
 
