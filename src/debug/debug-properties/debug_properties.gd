@@ -1,7 +1,7 @@
 extends Control
 
-@onready var hide_button: Button = $VBoxContainer/hide
-@onready var goto_game_button: Button = $VBoxContainer/gotoGame
+@onready var hide_button: Button = $VBoxContainer/actions/hide
+@onready var goto_game_button: Button = $VBoxContainer/actions/gotoGame
 
 func _ready() -> void:
 	if !OS.has_feature("editor"): hide()
