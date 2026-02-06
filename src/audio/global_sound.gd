@@ -15,6 +15,8 @@ func _ready() -> void:
 			_sound_map.set(c.name, c)
 		if c is ControlledAudioStreamPlayer2D:
 			_sound_map.set(c.name, c)
+		if c is ControlledAudioStreamPlayer3D:
+			_sound_map.set(c.name, c)
 			
 	singleton = self
 			

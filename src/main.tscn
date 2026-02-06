@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://doia7y6nbfc0a" path="res://src/game/game.tres" id="7_rlaii"]
 [ext_resource type="Script" uid="uid://kaqllehf0y7c" path="res://src/audio/global_sound.gd" id="10_e7lu8"]
 [ext_resource type="Theme" uid="uid://bry4peyypr0hh" path="res://resources/graphics/themes/debug_theme.tres" id="10_kqbth"]
-[ext_resource type="Script" uid="uid://buhskey0nj1a1" path="res://src/audio/controlled_audio_stream_player_2d.gd" id="10_mlv6i"]
+[ext_resource type="Script" uid="uid://buhskey0nj1a1" path="res://src/audio/controlled_audio_stream_player.gd" id="10_mlv6i"]
 [ext_resource type="AudioStream" uid="uid://thl7i6uugsy" path="res://resources/audio/sfx/plop.wav" id="10_tb146"]
 [ext_resource type="Script" uid="uid://bc6k7x63oamaq" path="res://src/debug/debug-properties/fps_counter.gd" id="11_uewes"]
 [ext_resource type="Script" uid="uid://wqpsii52wp4h" path="res://src/debug/debug_environment_label.gd" id="12_srxbw"]

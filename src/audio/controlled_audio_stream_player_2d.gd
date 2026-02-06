@@ -1,4 +1,4 @@
-class_name ControlledAudioStreamPlayer extends AudioStreamPlayer
+class_name ControlledAudioStreamPlayer2D extends AudioStreamPlayer2D
 
 @export var type: ControlledAudioUtil.AudioType
 
