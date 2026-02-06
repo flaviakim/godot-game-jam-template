@@ -1,3 +1,9 @@
+# License and Copyright
+
+This project is released under the Unlicense. See the [LICENSE](LICENSE) file for details.
+
+> If you decide to give some credit voluntarily, you can keep the "based on a saturn91.dev template" watermark in the intro
+
 # Brackeys Game Jam 26.1 - Godot Project
 
 This is a Godot repository for the [Brackeys Game Jam 26.1](https://itch.io/jam/brackeys-15).
