@@ -1,7 +1,7 @@
-class_name InGameController extends CanvasLayer
+class_name InGameUIController extends CanvasLayer
 
 @onready var pause_btn: Button = $Control/PauseButton
-@onready var pause_menu: CanvasLayer = $"../PauseGameUi"
+@onready var pause_menu: CanvasLayer = $"../GamePausedController"
 @onready var world: Node = $"../world"
 
 var is_paused: bool = false:

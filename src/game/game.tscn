@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://da0xnfi2i7ixy" path="res://src/module/module.gd" id="1_qnjlk"]
 [ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="2_s6lek"]
 [ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="3_l80un"]
-[ext_resource type="Script" uid="uid://tyug5shtd20o" path="res://src/in-game-ui/in-game-controller.gd" id="3_xptat"]
+[ext_resource type="Script" uid="uid://tyug5shtd20o" path="res://src/in-game-ui/in_game_ui_controller.gd" id="3_xptat"]
 [ext_resource type="Texture2D" uid="uid://h1r8bdmg0at2" path="res://resources/icons/pause.png" id="4_xptat"]
+[ext_resource type="Script" uid="uid://dpo0qgibgkc13" path="res://src/in-game-ui/game_paused_ui_controller.gd" id="6_yarin"]
 
 [sub_resource type="Animation" id="Animation_s6lek"]
 length = 0.001
@@ -60,10 +61,11 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_l80un")
 autoplay = &"movement"
 
-[node name="InGameUi" type="CanvasLayer" parent="." unique_id=1763987565]
+[node name="InGameUIController" type="CanvasLayer" parent="." unique_id=741749158]
 script = ExtResource("3_xptat")
+metadata/_custom_type_script = "uid://tyug5shtd20o"
 
-[node name="Control" type="Control" parent="InGameUi" unique_id=1902612887]
+[node name="Control" type="Control" parent="InGameUIController" unique_id=1902612887]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -72,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_l80un")
 
-[node name="PauseButton" type="Button" parent="InGameUi/Control" unique_id=1327372215]
+[node name="PauseButton" type="Button" parent="InGameUIController/Control" unique_id=1327372215]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 16.0
@@ -80,10 +82,12 @@ offset_right = 78.0
 offset_bottom = 78.0
 icon = ExtResource("4_xptat")
 
-[node name="PauseGameUi" type="CanvasLayer" parent="." unique_id=2147355657]
+[node name="GamePausedController" type="CanvasLayer" parent="." unique_id=716181639]
 visible = false
+script = ExtResource("6_yarin")
+metadata/_custom_type_script = "uid://dpo0qgibgkc13"
 
-[node name="Control" type="Control" parent="PauseGameUi" unique_id=1555826084]
+[node name="Control" type="Control" parent="GamePausedController" unique_id=1555826084]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,26 +96,86 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_l80un")
 
-[node name="ColorRect" type="ColorRect" parent="PauseGameUi/Control" unique_id=297454669]
+[node name="ColorRect" type="ColorRect" parent="GamePausedController/Control" unique_id=682310934]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.77254903)
+color = Color(0, 0, 0, 0.7372549)
 
-[node name="Label" type="Label" parent="PauseGameUi/Control" unique_id=440563647]
+[node name="VBoxContainer" type="VBoxContainer" parent="GamePausedController/Control" unique_id=848004271]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -16.0
-offset_right = 20.0
-offset_bottom = 16.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Game paused press \"Esc\" to unpause"
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GamePausedController/Control/VBoxContainer" unique_id=1407848683]
+layout_mode = 2
+theme = ExtResource("3_l80un")
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Title" type="Label" parent="GamePausedController/Control/VBoxContainer/VBoxContainer" unique_id=1477110227]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Body" type="HBoxContainer" parent="GamePausedController/Control/VBoxContainer/VBoxContainer" unique_id=1594649016]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Labels" type="VBoxContainer" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body" unique_id=1525180217]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body/Labels" unique_id=140048174]
+layout_mode = 2
+text = "Fullscreen:"
+
+[node name="Label2" type="Label" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body/Labels" unique_id=1949200948]
+layout_mode = 2
+text = "Music volume: "
+
+[node name="Label3" type="Label" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body/Labels" unique_id=644994485]
+layout_mode = 2
+text = "Sfx volume: "
+
+[node name="Fields" type="VBoxContainer" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body" unique_id=595969019]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Fullscreen" type="CheckBox" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body/Fields" unique_id=178649878]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="MusicVolume" type="HSlider" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body/Fields" unique_id=235828425]
+layout_mode = 2
+size_flags_vertical = 10
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="SfxVolume" type="HSlider" parent="GamePausedController/Control/VBoxContainer/VBoxContainer/Body/Fields" unique_id=727140060]
+layout_mode = 2
+size_flags_vertical = 10
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="Continue" type="Button" parent="GamePausedController/Control/VBoxContainer/VBoxContainer" unique_id=229832486]
+layout_mode = 2
+text = "Continue"
+
+[node name="MainMenu" type="Button" parent="GamePausedController/Control/VBoxContainer/VBoxContainer" unique_id=1423964810]
+layout_mode = 2
+text = "Main menu"
