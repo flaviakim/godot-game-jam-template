@@ -29,14 +29,6 @@ metadata/_custom_type_script = "uid://bf8fle3x61p80"
 script = ExtResource("2_kf8lf")
 metadata/_custom_type_script = "uid://wcvouw7dek2n"
 
-[node name="ModulManager" type="Node" parent="." unique_id=1966766302]
-script = ExtResource("1_gh0ne")
-inital_module = ExtResource("4_fyndt")
-modules = Array[ExtResource("2_5q4o7")]([ExtResource("4_fyndt"), ExtResource("5_kmhfv"), ExtResource("6_kmhfv"), ExtResource("7_5mrjc"), ExtResource("7_rlaii")])
-metadata/_custom_type_script = "uid://capbdq5tj44gi"
-
-[node name="ModuleRoot" type="Node" parent="ModulManager" unique_id=370113605]
-
 [node name="GlobalSound" type="Node" parent="." unique_id=613539388]
 script = ExtResource("10_e7lu8")
 metadata/_custom_type_script = "uid://kaqllehf0y7c"
@@ -55,6 +47,14 @@ playback_type = 1
 script = ExtResource("10_mlv6i")
 type = 1
 metadata/_custom_type_script = "uid://buhskey0nj1a1"
+
+[node name="ModulManager" type="Node" parent="." unique_id=1966766302]
+script = ExtResource("1_gh0ne")
+inital_module = ExtResource("4_fyndt")
+modules = Array[ExtResource("2_5q4o7")]([ExtResource("4_fyndt"), ExtResource("5_kmhfv"), ExtResource("6_kmhfv"), ExtResource("7_5mrjc"), ExtResource("7_rlaii")])
+metadata/_custom_type_script = "uid://capbdq5tj44gi"
+
+[node name="ModuleRoot" type="Node" parent="ModulManager" unique_id=370113605]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=780290207]
 

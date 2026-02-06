@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dp83k3rrysogj"]
 
-[ext_resource type="Texture2D" uid="uid://oebeukmhvcrg" path="res://resources/graphics/placeholder/background_by_ansimuz.png" id="1_2im77"]
-[ext_resource type="Texture2D" uid="uid://71wg0frxckhr" path="res://resources/graphics/logos/brackeysJam.png" id="2_o5cjq"]
+[ext_resource type="Texture2D" uid="uid://oebeukmhvcrg" path="res://resources/graphics/placeholder/background_by_ansimuz.png" id="1_1gqne"]
+[ext_resource type="Script" uid="uid://bo78eujl502av" path="res://src/ui/menu-background/menu_background.gd" id="1_7c5cg"]
+[ext_resource type="Texture2D" uid="uid://71wg0frxckhr" path="res://resources/graphics/logos/brackeysJam.png" id="2_7c5cg"]
 
 [node name="MainMenuBackground" type="Control" unique_id=1400580827]
 layout_mode = 3
@@ -10,8 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7c5cg")
 
-[node name="MainMenuBackground" type="TextureRect" parent="." unique_id=2131962927]
+[node name="image" type="TextureRect" parent="." unique_id=2131962927]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -19,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_2im77")
+texture = ExtResource("1_1gqne")
 expand_mode = 5
 stretch_mode = 6
 
@@ -42,6 +44,6 @@ offset_top = -170.0
 offset_right = 220.0
 offset_bottom = -16.0
 grow_vertical = 0
-texture = ExtResource("2_o5cjq")
+texture = ExtResource("2_7c5cg")
 expand_mode = 1
 stretch_mode = 4

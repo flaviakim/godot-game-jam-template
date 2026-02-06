@@ -13,7 +13,7 @@ func _ready() -> void:
 		var label_instance = Label.new()
 		var value_instance = Label.new()
 		
-		label_instance.text = credit.label
+		label_instance.text = credit.label + ":"
 		value_instance.text = credit.value
 		
 		label_parent.add_child(label_instance)

@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://da0xnfi2i7ixy" path="res://src/module/module.gd" id="1_0tdaw"]
 [ext_resource type="Script" uid="uid://k4seea4tlsu4" path="res://src/intro/info_controller.gd" id="2_txmmr"]
+[ext_resource type="PackedScene" uid="uid://dp83k3rrysogj" path="res://src/ui/menu-background/menu_background.tscn" id="3_yenea"]
+[ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="4_nqxh0"]
+[ext_resource type="Texture2D" uid="uid://jj4sp1wn3jqo" path="res://resources/graphics/logos/saturn91.png" id="5_bqxb2"]
+[ext_resource type="Texture2D" uid="uid://b3sgdu5quety7" path="res://resources/graphics/logos/logo_dark.svg" id="5_yxki3"]
 
 [node name="Intro" type="Node2D" unique_id=229911188]
 script = ExtResource("1_0tdaw")
@@ -13,24 +17,87 @@ metadata/_custom_type_script = "uid://k4seea4tlsu4"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1842538394]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=588931583]
+[node name="MainMenuBackground" parent="CanvasLayer" unique_id=1400580827 instance=ExtResource("3_yenea")]
+show_logo = false
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=578255430]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+theme = ExtResource("4_nqxh0")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1812396138]
+[node name="Saturn91_dev" type="TextureRect" parent="CanvasLayer/Control" unique_id=351826505]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -75.0
+offset_top = -107.0
+offset_right = 75.0
+offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "INTRO"
+texture = ExtResource("5_bqxb2")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Saturn91_dev" unique_id=19825326]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = 12.050003
+offset_right = 109.0
+offset_bottom = 44.05002
+grow_horizontal = 2
+grow_vertical = 0
+text = " made by saturn91"
+
+[node name="GodotLogo" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=1622293099]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.5
+offset_top = -86.0
+offset_right = 170.5
+offset_bottom = -15.999878
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/GodotLogo" unique_id=545222449]
+layout_mode = 2
+text = "made with"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/GodotLogo" unique_id=395431694]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+texture = ExtResource("5_yxki3")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="template" type="Label" parent="CanvasLayer/Control" unique_id=2073307891]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -24.0
+offset_right = 257.0
+offset_bottom = -8.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 12
+text = "based on a saturn91.dev template"
+vertical_alignment = 2
