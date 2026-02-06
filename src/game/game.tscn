@@ -1,7 +1,117 @@
 [gd_scene format=3 uid="uid://8gipcpubw6e6"]
 
 [ext_resource type="Script" uid="uid://da0xnfi2i7ixy" path="res://src/module/module.gd" id="1_qnjlk"]
+[ext_resource type="Texture2D" uid="uid://b80nh1iu128sd" path="res://icon.svg" id="2_s6lek"]
+[ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="3_l80un"]
+[ext_resource type="Script" uid="uid://tyug5shtd20o" path="res://src/in-game-ui/in-game-controller.gd" id="3_xptat"]
+[ext_resource type="Texture2D" uid="uid://h1r8bdmg0at2" path="res://resources/icons/pause.png" id="4_xptat"]
+
+[sub_resource type="Animation" id="Animation_s6lek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kgj8g"]
+resource_name = "movement"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-250, 0), Vector2(0, 0), Vector2(250, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l80un"]
+_data = {
+&"RESET": SubResource("Animation_s6lek"),
+&"movement": SubResource("Animation_kgj8g")
+}
 
 [node name="Game" type="Node2D" unique_id=846217353]
 script = ExtResource("1_qnjlk")
 metadata/_custom_type_script = "uid://da0xnfi2i7ixy"
+
+[node name="world" type="Node2D" parent="." unique_id=696585772]
+
+[node name="Camera2D" type="Camera2D" parent="world" unique_id=1415216061]
+
+[node name="Sprite2D" type="Sprite2D" parent="world/Camera2D" unique_id=1768625628]
+texture = ExtResource("2_s6lek")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="world/Camera2D/Sprite2D" unique_id=1502491521]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_l80un")
+autoplay = &"movement"
+
+[node name="InGameUi" type="CanvasLayer" parent="." unique_id=1763987565]
+script = ExtResource("3_xptat")
+
+[node name="Control" type="Control" parent="InGameUi" unique_id=1902612887]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_l80un")
+
+[node name="PauseButton" type="Button" parent="InGameUi/Control" unique_id=1327372215]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 78.0
+offset_bottom = 78.0
+icon = ExtResource("4_xptat")
+
+[node name="PauseGameUi" type="CanvasLayer" parent="." unique_id=2147355657]
+visible = false
+
+[node name="Control" type="Control" parent="PauseGameUi" unique_id=1555826084]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_l80un")
+
+[node name="ColorRect" type="ColorRect" parent="PauseGameUi/Control" unique_id=297454669]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.77254903)
+
+[node name="Label" type="Label" parent="PauseGameUi/Control" unique_id=440563647]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game paused press \"Esc\" to unpause"
