@@ -45,5 +45,6 @@ resources -> files from external editors
 - [x] prepare webbuild export
 - [x] prepare desktop exports
 - [x] prepare theme for ui
+- [ ] give credits for the roalty free used main menu track
 
 > Template created by [saturn91.dev](https://saturn91.dev)

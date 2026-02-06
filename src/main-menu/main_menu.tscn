@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbwbygqpg0fdq"]
 
 [ext_resource type="Script" uid="uid://da0xnfi2i7ixy" path="res://src/module/module.gd" id="1_3mb8q"]
-[ext_resource type="Texture2D" uid="uid://71wg0frxckhr" path="res://resources/graphics/logos/brackeysJam.png" id="2_3ar5o"]
+[ext_resource type="PackedScene" uid="uid://dp83k3rrysogj" path="res://src/ui/main_menu_background.tscn" id="2_6egru"]
 [ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="2_gs0nq"]
 [ext_resource type="Script" uid="uid://dxe0vn5mloagj" path="res://src/main-menu/main_menu_controller.gd" id="2_qp1v6"]
 
@@ -10,6 +10,8 @@ script = ExtResource("1_3mb8q")
 metadata/_custom_type_script = "uid://da0xnfi2i7ixy"
 
 [node name="ui" type="CanvasLayer" parent="." unique_id=482831599]
+
+[node name="MainMenuBackground" parent="ui" unique_id=2131962927 instance=ExtResource("2_6egru")]
 
 [node name="Root" type="Control" parent="ui" unique_id=1000181847]
 layout_mode = 3
@@ -96,17 +98,3 @@ text = "Credits"
 [node name="CloseButton" type="Button" parent="ui/Root/Control/MainControls" unique_id=384248036]
 layout_mode = 2
 text = "Close"
-
-[node name="TextureRect" type="TextureRect" parent="ui/Root" unique_id=1589338084]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -170.0
-offset_right = 220.0
-offset_bottom = -16.0
-grow_vertical = 0
-texture = ExtResource("2_3ar5o")
-expand_mode = 1
-stretch_mode = 4

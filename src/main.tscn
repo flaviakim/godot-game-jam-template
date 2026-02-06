@@ -16,7 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://thl7i6uugsy" path="res://resources/audio/sfx/plop.wav" id="10_tb146"]
 [ext_resource type="Script" uid="uid://bc6k7x63oamaq" path="res://src/debug/debug-properties/fps_counter.gd" id="11_uewes"]
 [ext_resource type="Script" uid="uid://wqpsii52wp4h" path="res://src/debug/debug_environment_label.gd" id="12_srxbw"]
-[ext_resource type="AudioStream" uid="uid://ckvjkpm3qnses" path="res://resources/audio/music/zombie_main_music_placeholder.ogg" id="13_okx7f"]
+[ext_resource type="AudioStream" uid="uid://bmiwh46xuqf7y" path="res://resources/audio/music/zombie_main_music_placeholder_by_haeldb.ogg" id="13_okx7f"]
 [ext_resource type="Script" uid="uid://qxmah1buto32" path="res://src/debug/debug_current_modul.gd" id="14_d3u4l"]
 
 [node name="Main" type="Node2D" unique_id=732130935]
@@ -47,10 +47,11 @@ volume_db = -10.0
 script = ExtResource("10_mlv6i")
 metadata/_custom_type_script = "uid://buhskey0nj1a1"
 
-[node name="menu_music" type="AudioStreamPlayer" parent="GlobalSound" unique_id=798656571]
+[node name="Music" type="AudioStreamPlayer" parent="GlobalSound" unique_id=999459748]
 stream = ExtResource("13_okx7f")
-volume_db = -17.029
+volume_db = -10.339
 autoplay = true
+playback_type = 1
 script = ExtResource("10_mlv6i")
 type = 1
 metadata/_custom_type_script = "uid://buhskey0nj1a1"

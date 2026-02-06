@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://da0xnfi2i7ixy" path="res://src/module/module.gd" id="1_0dtj6"]
 [ext_resource type="Script" uid="uid://do5dkp7h1mhkf" path="res://src/settings-menu/settings_menu_controller.gd" id="2_yc5u7"]
+[ext_resource type="PackedScene" uid="uid://dp83k3rrysogj" path="res://src/ui/main_menu_background.tscn" id="3_8ecug"]
 [ext_resource type="Theme" uid="uid://d0a3gnjaubqx" path="res://resources/graphics/themes/main-theme/main_ui_theme.tres" id="3_yc5u7"]
 
 [node name="SettingsMenu" type="Node2D" unique_id=1565746903]
@@ -13,6 +14,8 @@ script = ExtResource("2_yc5u7")
 metadata/_custom_type_script = "uid://do5dkp7h1mhkf"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=138652352]
+
+[node name="MainMenuBackground" parent="UI" unique_id=2131962927 instance=ExtResource("3_8ecug")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=283765815]
 anchors_preset = 13
