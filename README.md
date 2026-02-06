@@ -27,7 +27,7 @@ This repository contains boilerplate code that will handle module loading. For t
 
 Following other features are ready to use:
 - simple Global soundsystem for easy reusable simple and or UI sounds
-- persisted settings (saved to file) which update the volume of all AudioSources automatically
+- persisted settings (saved to file) which update the volume of all audio on "SFX" and "Music" buses automatically
 - pause game mechanics and in game settings menu
 - elaborate debug system which will make your testing phase easier in so many ways
 
@@ -50,16 +50,21 @@ Use `Debug.singleton.print(msg)`, `Debug.singleton.warn(msg)`, or `Debug.singlet
 
 >Recommendation, mainly use this to debug and for errors/warnings which you don't expect the game to run into. I build this message tool with debugging in builds in mind, not to inform the player ;-) but you do you!
 
-## Global Soundsystem which is connect to the Settingsmanager
+## Audio System with Bus-Based Volume Control
+
+The project uses Godot's audio buses ("SFX" and "Music") for global volume management. Volume settings are persisted and automatically applied to all audio on the respective buses.
 
 ### Adding global sounds
-Add `AudioStreamPlayer`, `AudioStreamPlayer2D`, or `ControlledAudioStreamPlayer` nodes as children to the GlobalSound node. They will be automatically registered by name for global playback.
+Add `AudioStreamPlayer`, `AudioStreamPlayer2D`, or `AudioStreamPlayer3D` nodes as children to the `GlobalSound` node. Assign them to the "SFX" bus for volume control. They will be automatically registered by name for global playback.
 
-### Playing global sounds from scripts
-Use `GlobalSound.singleton.play("sound_name")` to play a registered sound by its node name.
+### Adding global music
+Add `AudioStreamPlayer` nodes as children to the `GlobalMusic` node. Assign them to the "Music" bus for volume control. They will be automatically registered by name for global playback.
 
-### ControlledAudioStreamPlayers
-Use `ControlledAudioStreamPlayer` or `ControlledAudioStreamPlayer2D` or `ControlledAudioStreamPlayer3D` instead of standard AudioStreamPlayers when you want volume settings to apply. Set the `type` export to `SFX` or `MUSIC`. These automatically connect to `SettingsManager.singleton.on_volume_changed` signal to adjust volume based on user settings and get updated immediatly on each volume setting change.
+### Playing global sounds/music from scripts
+Use `GlobalSound.singleton.play("sound_name")` or `GlobalMusic.singleton.play("music_name")` to play a registered sound/music by its node name.
+
+### Bus-based volume control
+All audio assigned to "SFX" or "Music" buses automatically respects user volume settings. Volumes are linear (0-1) internally, converted to dB for the AudioStreamPlayers.
 
 ## Folder structure
 I created some other sub readmes for both folders
