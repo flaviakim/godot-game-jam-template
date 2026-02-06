@@ -75,6 +75,10 @@ layout_mode = 2
 layout_mode = 2
 text = "this is the debug menu, press CTRL + PERIOD to toggle"
 
+[node name="hide" type="Button" parent="UI/DebugProperties/VBoxContainer" unique_id=1532196077]
+layout_mode = 2
+text = "hide debug menu"
+
 [node name="host" type="Label" parent="UI/DebugProperties/VBoxContainer" unique_id=1070084554]
 layout_mode = 2
 text = "host: #environment"
@@ -89,6 +93,10 @@ metadata/_custom_type_script = "uid://bc6k7x63oamaq"
 layout_mode = 2
 text = "module: #module"
 script = ExtResource("14_d3u4l")
+
+[node name="gotoGame" type="Button" parent="UI/DebugProperties/VBoxContainer" unique_id=1371985855]
+layout_mode = 2
+text = "goto game"
 
 [node name="DebugMessages" type="MarginContainer" parent="UI" unique_id=934068952]
 anchors_preset = 9
