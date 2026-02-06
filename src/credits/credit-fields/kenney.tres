@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CreditsField" format=3 uid="uid://dm2xecjprhois"]
+
+[ext_resource type="Script" uid="uid://cm6x2kltvah6f" path="res://src/credits/credit_field.gd" id="1_f0jcp"]
+
+[resource]
+script = ExtResource("1_f0jcp")
+label = "Icons"
+value = "Kenney"
+metadata/_custom_type_script = "uid://cm6x2kltvah6f"
