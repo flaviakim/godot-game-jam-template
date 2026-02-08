@@ -1,5 +1,7 @@
 # License and Copyright
+> Important!! for your project as soon as you have forked / copied this template delete the `LICCENSE` File and also this section in the `README.md` YOUR project should probably not be licensed under `Unlicense`! Either remove our replace with a better suited Liscense!
 
+---
 This project is released under the Unlicense. See the [LICENSE](LICENSE) file for details.
 
 > If you decide to give some credit voluntarily, you can keep the "based on a saturn91.dev template" watermark in the intro
