@@ -21,7 +21,7 @@ func _ready() -> void:
 			
 func play(id: String) -> void:
 	if !_sound_map.has(id):
-		Debug.singleton.error("sound: " + id + " does not exist!")
+		Debug.error("sound: " + id + " does not exist!")
 		return
 		
 	_sound_map.get(id).play()

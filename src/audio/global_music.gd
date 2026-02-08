@@ -28,7 +28,7 @@ func play(id: String) -> void:
 	stop()
 		
 	if !music_tracks.has(id):
-		Debug.singleton.error("music track: " + id + " does not exist!")
+		Debug.error("music track: " + id + " does not exist!")
 		return
 		
 	_current_track = music_tracks.get(id)

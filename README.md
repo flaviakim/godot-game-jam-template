@@ -48,7 +48,7 @@ It already contains some debug properties by default:
 - you can expand this easily further e.g. with some buttons to load certain levels or give weapons to the player or kill all enemies, take you directly to the boss stage... basically make your life easier when testing the game
 
 ### Message system
-Use `Debug.singleton.print(msg)`, `Debug.singleton.warn(msg)`, or `Debug.singleton.error(msg)` to display snackbar-like messages which will also be visible on builds.
+Use `Debug.print(msg)`, `Debug.warn(msg)`, or `Debug.error(msg)` to display snackbar-like messages which will also be visible on builds.
 
 >Recommendation, mainly use this to debug and for errors/warnings which you don't expect the game to run into. I build this message tool with debugging in builds in mind, not to inform the player ;-) but you do you!
 

@@ -1,8 +1,6 @@
-class_name Debug extends Node
+extends Node
 
-static var singleton: Debug
-
-@onready var message_parent: Control = $"../UI/DebugMessages/VBoxContainer"
+var message_parent: Control
 
 var _info_type: DebugMessageType = load("res://src/debug/message_types/info.tres")
 var _warning_type: DebugMessageType = load("res://src/debug/message_types/warning.tres")
@@ -11,8 +9,8 @@ var _error_type: DebugMessageType = load("res://src/debug/message_types/error.tr
 var _template: PackedScene = load("res://src/debug/debug_message.tscn")
 
 func _ready() -> void:
-	singleton = self
-
+	message_parent = get_node("/root/Main/UI/DebugMessages/DebugMessagesParent")
+	
 func print(msg: String) -> void:
 	print(msg)
 	add_message(msg, _info_type)

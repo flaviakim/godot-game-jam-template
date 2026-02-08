@@ -15,7 +15,7 @@ enum Hosts {
 
 func is_web() -> bool:
 	if _set_web_debug:
-		Debug.singleton.error("debug tool is set to always be web!")
+		Debug.error("debug tool is set to always be web!")
 		return true
 	
 	return OS.has_feature("web")

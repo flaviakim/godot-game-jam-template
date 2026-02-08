@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://wbv3t0cmsji3"]
 
-[ext_resource type="Script" uid="uid://bf8fle3x61p80" path="res://src/debug/debug.gd" id="1_3cfgd"]
 [ext_resource type="Script" uid="uid://capbdq5tj44gi" path="res://src/module/modul_manager.gd" id="1_gh0ne"]
 [ext_resource type="Script" uid="uid://dh8pdmktp1gku" path="res://src/debug/debug-properties/debug_properties.gd" id="1_mgm53"]
 [ext_resource type="Script" uid="uid://cvji2ctgpxin" path="res://src/module/module_info.gd" id="2_5q4o7"]
@@ -21,17 +20,12 @@
 
 [node name="Main" type="Node2D" unique_id=732130935]
 
-[node name="Debug" type="Node" parent="." unique_id=314416683]
-script = ExtResource("1_3cfgd")
-metadata/_custom_type_script = "uid://bf8fle3x61p80"
-
 [node name="SettingsManager" type="Node" parent="." unique_id=87731887]
 script = ExtResource("2_kf8lf")
 metadata/_custom_type_script = "uid://wcvouw7dek2n"
 
 [node name="GlobalMusic" type="Node" parent="." unique_id=1615095645]
 script = ExtResource("3_okx7f")
-metadata/_custom_type_script = "uid://deetnautgtc8f"
 
 [node name="MainMenu" type="AudioStreamPlayer" parent="GlobalMusic" unique_id=1574602383]
 stream = ExtResource("13_okx7f")
@@ -105,7 +99,7 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/DebugMessages" unique_id=1187226523]
+[node name="DebugMessagesParent" type="VBoxContainer" parent="UI/DebugMessages" unique_id=1187226523]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0

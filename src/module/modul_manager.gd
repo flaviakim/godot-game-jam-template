@@ -26,8 +26,8 @@ func initialize_module_mapping() -> void:
 
 func load_module(module_id: String) -> void:
 	if !_module_mapping.has(module_id):
-		Debug.singleton.warn("valid module-id's: " + str(_module_mapping.keys()))
-		Debug.singleton.error("module [" + module_id + "] does not exist")
+		Debug.warn("valid module-id's: " + str(_module_mapping.keys()))
+		Debug.error("module [" + module_id + "] does not exist")
 	else:
 		unload_current_module()
 		_instantiate_module(module_id)
@@ -39,7 +39,7 @@ func unload_current_module() -> void:
 func _instantiate_module(module_id: String) -> void:
 	var new_module = (_module_mapping.get(module_id) as ModuleInfo).scene.instantiate()
 	if !new_module is Module:
-		Debug.singleton.warn(module_id + ": has no attached Module script!")
+		Debug.warn(module_id + ": has no attached Module script!")
 	
 	module_root.add_child(new_module)
 	_current_module = new_module

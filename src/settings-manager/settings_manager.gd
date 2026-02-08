@@ -55,7 +55,7 @@ func save_settings() -> void:
 
 	var err = config.save(SETTINGS_PATH)
 	if err != OK:
-		Debug.singleton.error("Failed to save settings")
+		Debug.error("Failed to save settings")
 	
 func load_settings():
 	var config := ConfigFile.new()
