@@ -14,6 +14,27 @@ thickness = 8
 color = Color(0.21568628, 0.019607844, 0.4627451, 1)
 thickness = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kq82"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [resource]
 Button/colors/font_color = Color(1, 0.78039217, 0.19607843, 1)
 Button/colors/font_disabled_color = Color(0.43985292, 0.32980356, 0, 1)
@@ -56,4 +77,15 @@ HSlider/styles/grabber_area = SubResource("StyleBoxLine_0kq82")
 HSlider/styles/slider = SubResource("StyleBoxLine_cdulx")
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_0kq82")
+LinkButton/colors/font_color = Color(0.49411765, 0.34509805, 1, 1)
+LinkButton/colors/font_disabled_color = Color(0.2332991, 0.0005053729, 0.57840353, 1)
+LinkButton/colors/font_focus_color = Color(0.49411765, 0.34509805, 1, 1)
+LinkButton/colors/font_hover_color = Color(0.49411765, 0.34509805, 1, 1)
+LinkButton/colors/font_outline_color = Color(0, 0, 0, 1)
+LinkButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+LinkButton/constants/outline_size = 0
+LinkButton/constants/underline_spacing = 2
+LinkButton/font_sizes/font_size = 24
+LinkButton/fonts/font = ExtResource("1_0kq82")
+LinkButton/styles/focus = SubResource("StyleBoxFlat_0kq82")
 VBoxContainer/constants/separation = 16
