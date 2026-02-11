@@ -15,7 +15,7 @@ fi
 mkdir -p builds/web
 mkdir -p builds/linux
 mkdir -p builds/win
-mkdir -p builds/macos
+mkdir -p builds/mac
 
 
 
