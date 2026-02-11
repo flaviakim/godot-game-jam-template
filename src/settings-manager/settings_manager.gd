@@ -3,13 +3,18 @@ extends Node
 
 const SETTINGS_PATH := "user://settings.cfg"
 
-var fullscreen: bool = false:
+const default_fullscreen: bool = false
+const default_music_volume: float = 1.0
+const default_sfx_volume: float = 1.0
+const default_ui_scale: float = 1.0
+
+var fullscreen: bool = default_fullscreen:
 	set = set_fullscreen
-var music_volume: float = 1.0:
+var music_volume: float = default_music_volume:
 	set = set_music_volume
-var sfx_volume: float = 1.0:
+var sfx_volume: float = default_sfx_volume:
 	set = set_sfx_volume
-var ui_scale: float = 1.0:
+var ui_scale: float = default_ui_scale:
 	set = set_ui_scale
 
 func _ready() -> void:
@@ -69,6 +74,7 @@ func save_settings() -> void:
 	config.set_value("video", "fullscreen", fullscreen)
 	config.set_value("audio", "music_volume", music_volume)
 	config.set_value("audio", "sfx_volume", sfx_volume)
+	config.set_value("ui", "ui_scale", ui_scale)
 
 	var err = config.save(SETTINGS_PATH)
 	if err != OK:
@@ -85,4 +91,14 @@ func load_settings():
 	fullscreen = config.get_value("video", "fullscreen", fullscreen)
 	music_volume = config.get_value("audio", "music_volume", music_volume)
 	sfx_volume = config.get_value("audio", "sfx_volume", sfx_volume)
+	ui_scale = config.get_value("ui", "ui_scale", ui_scale)
 	apply_volumes()
+
+func reset_settings() -> void:
+	fullscreen = default_fullscreen
+	music_volume = default_music_volume
+	sfx_volume = default_sfx_volume
+	ui_scale = default_ui_scale
+	apply_volumes()
+	apply_ui_scale()
+	save_settings()

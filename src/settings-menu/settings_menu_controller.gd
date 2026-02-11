@@ -4,6 +4,7 @@ class_name SettingsMenuController extends Node
 @onready var music_slider: Slider = $"../UI/VBoxContainer/Body/Fields/MusicVolume"
 @onready var sfx_slider: Slider = $"../UI/VBoxContainer/Body/Fields/SfxVolume"
 @onready var ui_slider: Slider = $"../UI/VBoxContainer/Body/Fields/UIScale"
+@onready var reset_settings_button: Button = $"../UI/VBoxContainer/ResetSettingsButton"
 @onready var main_menu_btn: Button = $"../UI/VBoxContainer/Button"
 
 func _ready() -> void:
@@ -29,4 +30,16 @@ func _ready() -> void:
 			SettingsManager.ui_scale = ui_slider.value
 	)
 	
+	reset_settings_button.button_up.connect(func():
+		GlobalSound.singleton.play("UiPlop")
+		SettingsManager.reset_settings()
+		reset_ui()
+	)
+	
 	UiUtils.connect_button_to_scene_load(main_menu_btn, load("res://src/main-menu/main_menu.tres"))
+
+func reset_ui() -> void:
+	fullscreen_checkbox.button_pressed = SettingsManager.fullscreen
+	music_slider.value = SettingsManager.music_volume
+	sfx_slider.value = SettingsManager.sfx_volume
+	ui_slider.value = SettingsManager.ui_scale

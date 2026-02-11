@@ -90,6 +90,10 @@ max_value = 2.0
 step = 0.1
 value = 1.0
 
+[node name="ResetSettingsButton" type="Button" parent="UI/VBoxContainer" unique_id=1183528952]
+layout_mode = 2
+text = "Reset Settings"
+
 [node name="Button" type="Button" parent="UI/VBoxContainer" unique_id=1637804571]
 layout_mode = 2
 text = "Main menu"
