@@ -55,6 +55,11 @@ func reset_ui() -> void:
 	sfx_slider.value = SettingsManager.sfx_volume
 	ui_slider.value = SettingsManager.ui_scale
 
+func _process(delta: float) -> void:
+	if ui_scale_change_dialog.is_visible():
+		var time_left: float = timer.time_left
+		ui_scale_change_dialog.get_ok_button().text = "Save (%ds)" % (time_left + 1) # +1 because it is floored, so it will show 0 when there is still some time left.
+
 func _show_confirmation_dialog() -> void:
 	ui_scale_change_dialog.popup_centered()
 	timer.start()
