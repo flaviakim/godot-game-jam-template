@@ -117,3 +117,11 @@ func reset_settings() -> void:
 	apply_volumes()
 	apply_ui_scale()
 	save_all_settings()
+	
+func save_UI_scale() -> void:
+	save_all_settings()
+	
+func reset_UI_scale() -> void:
+	ui_scale = default_ui_scale
+	apply_ui_scale()
+	save_all_settings()
