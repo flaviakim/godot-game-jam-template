@@ -6,6 +6,7 @@ class_name SettingsMenuController extends Node
 @onready var ui_slider: Slider = $"../UI/VBoxContainer/Body/Fields/UIScale"
 @onready var reset_settings_button: Button = $"../UI/VBoxContainer/ResetSettingsButton"
 @onready var main_menu_btn: Button = $"../UI/VBoxContainer/Button"
+@onready var ui_scale_change_dialog = $"../UI/UI_Scale_Change_Dialog"
 
 func _ready() -> void:
 	fullscreen_checkbox.button_pressed = SettingsManager.fullscreen
@@ -28,23 +29,7 @@ func _ready() -> void:
 	ui_slider.drag_ended.connect(func(value_changed: float): 
 		if value_changed:
 			SettingsManager.ui_scale = ui_slider.value
-			var dialog: Window = ConfirmationDialog.new()
-			add_child(dialog)
-			dialog.dialog_text = "UI scale changed. Do you want to save this setting?"
-			dialog.ok_button_text = "Save"
-			dialog.cancel_button_text = "Reset"
-			dialog.get_ok_button().button_up.connect(func():
-				GlobalSound.singleton.play("UiPlop")
-				SettingsManager.save_UI_scale()
-				remove_child(dialog)
-			)
-			dialog.get_cancel_button().button_up.connect(func():
-				GlobalSound.singleton.play("UiPlop")
-				SettingsManager.reset_UI_scale() # TODO should we reset to the default value or just keep the previous value? If keeping the previous value, just comment out this line.
-				reset_ui()
-				remove_child(dialog)
-			)
-			dialog.popup_centered_clamped(Vector2(400, 100))
+			_create_confirmation_dialog()
 	)
 	
 	reset_settings_button.button_up.connect(func():
@@ -60,3 +45,41 @@ func reset_ui() -> void:
 	music_slider.value = SettingsManager.music_volume
 	sfx_slider.value = SettingsManager.sfx_volume
 	ui_slider.value = SettingsManager.ui_scale
+
+func _create_confirmation_dialog() -> void:
+	var dialog: ConfirmationDialog = ui_scale_change_dialog
+	var timer: Timer = Timer.new()
+
+	dialog.get_ok_button().button_up.connect(func():
+		_dialog_confirm(dialog, timer)
+	)
+	dialog.get_cancel_button().button_up.connect(func():
+		_dialog_cancel(dialog, timer)
+	)
+	dialog.close_requested.connect(func():
+		_dialog_cancel(dialog, timer)
+	)
+	
+	timer.wait_time = 10
+	timer.one_shot = true
+	timer.timeout.connect(func():
+		_dialog_cancel(dialog, timer)
+		dialog.hide()
+	)
+	add_child(timer)
+
+	dialog.popup_centered_clamped(Vector2(400, 100))
+	timer.start()
+
+func _dialog_confirm(dialog: ConfirmationDialog, timer: Timer) -> void:
+	GlobalSound.singleton.play("UiPlop")
+	SettingsManager.save_UI_scale()
+	timer.stop()
+	remove_child(timer)
+
+func _dialog_cancel(dialog: ConfirmationDialog, timer: Timer) -> void:
+	GlobalSound.singleton.play("UiPlop")
+	SettingsManager.reset_UI_scale() # TODO should we reset to the default value or just keep the previous value? If keeping the previous value, just comment out this line.
+	reset_ui()
+	timer.stop()
+	remove_child(timer)
