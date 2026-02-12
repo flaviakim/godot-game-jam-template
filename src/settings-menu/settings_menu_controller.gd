@@ -75,11 +75,11 @@ func _dialog_confirm(dialog: ConfirmationDialog, timer: Timer) -> void:
 	GlobalSound.singleton.play("UiPlop")
 	SettingsManager.save_UI_scale()
 	timer.stop()
-	remove_child(timer)
+	timer.queue_free()
 
 func _dialog_cancel(dialog: ConfirmationDialog, timer: Timer) -> void:
 	GlobalSound.singleton.play("UiPlop")
 	SettingsManager.reset_UI_scale() # TODO should we reset to the default value or just keep the previous value? If keeping the previous value, just comment out this line.
 	reset_ui()
 	timer.stop()
-	remove_child(timer)
+	timer.queue_free()
